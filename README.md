@@ -14,12 +14,15 @@ Check out my:
 1. [Trello Board](https://trello.com/b/IqwJFaUb/daddio)
 
 
-2. [GitHub Repo]()
+2. [GitHub Repo](https://github.com/mpotts0201/dadd.io)
 
 
 3. [Heroku]()
 
 
-4. [ERD](https://imgur.com/vhLKLCS)
+4. ![ERD](https://imgur.com/vhLKLCS)
+
+
+5. [Wire Frames]() 
 
 
