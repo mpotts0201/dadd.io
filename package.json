@@ -1,0 +1,19 @@
+{
+  "name": "dadd.io",
+  "version": "1.0.0",
+  "description": "An app that let's you vote on dad jokes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpotts0201/dadd.io.git"
+  },
+  "author": "Murphy Potts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpotts0201/dadd.io/issues"
+  },
+  "homepage": "https://github.com/mpotts0201/dadd.io#readme"
+}

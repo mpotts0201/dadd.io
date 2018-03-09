@@ -20,9 +20,9 @@ Check out my:
 3. [Heroku]()
 
 
-4. ![ERD](https://imgur.com/vhLKLCS)
+4. [ERD](https://imgur.com/vhLKLCS)
 
 
-5. [Wire Frames]() 
+5. [Wire Frames](https://imgur.com/8ObsIj3) 
 
 
