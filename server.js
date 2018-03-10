@@ -1,4 +1,4 @@
-require('dontenv').config()
+// require('dontenv').config()
 // packages
 const express = require('express')
 const app = express()
@@ -11,7 +11,7 @@ const userController = require('./controllers/userController')
 mongoose.connect(process.env.MONGODB_URI)
 
 //logging info for db
-const connection = mongoose.connect
+const connection = mongoose.connection
 
 
 connection.on('connected', () =>{
@@ -28,7 +28,7 @@ app.use(express.static(`${__dirname}/client/build`))
 
 
 //routes
-app.use('/users', userController)
+app.use('/api/users', userController)
 
 app.get('/', (req, res) => {
     res.send("Hello World")
