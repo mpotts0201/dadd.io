@@ -2,8 +2,10 @@
   "name": "dadd.io",
   "version": "1.0.0",
   "description": "An app that let's you vote on dad jokes",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/mpotts0201/dadd.io/issues"
   },
-  "homepage": "https://github.com/mpotts0201/dadd.io#readme"
+  "homepage": "https://github.com/mpotts0201/dadd.io#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrency": "^0.1.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.9"
+  }
 }
