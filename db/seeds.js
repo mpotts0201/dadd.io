@@ -50,18 +50,20 @@ const jane = new User({
 
 
 
-
-
-
-User.remove({})
-    .then(() => { Joke.remove() })
-    .then(() => { murphy.save() })
-    .then(() => { john.save() })
-    .then(() => { jane.save() })
+Joke.remove({})
     .then(() => { joke1.save() })
     .then(() => { joke2.save() })
     .then(() => { joke3.save() })
     .then(() => { joke4.save() })
     .then(() => { joke5.save() })
-    .then(() => { mongoose.connection.close() })
-    .then(() => { console.log("Save successful") })
+    .then(() => { console.log("Saved jokes successfully") })
+
+
+
+User.remove({})
+    .then(() => { murphy.save() })
+    .then(() => { john.save() })
+    .then(() => { jane.save() })
+    // this keeps my server from sending the data properly to the browser 
+    // .then(() => { mongoose.connection.close() })
+    .then(() => { console.log("Saved users successfully") })
