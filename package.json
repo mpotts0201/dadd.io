@@ -1,5 +1,5 @@
 {
-  "name": "dadd.io",
+  "name": "dadd-io",
   "version": "1.0.0",
   "description": "An app that let's you vote on dad jokes",
   "main": "server.js",

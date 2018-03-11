@@ -5,6 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const userController = require('./controllers/userController')
+const { User } = require('./db/userSchema')
 
 
 //connect to mongoose 
@@ -14,13 +15,15 @@ mongoose.connect(process.env.MONGODB_URI)
 const connection = mongoose.connection
 
 
-connection.on('connected', () =>{
+connection.on('connected', () => {
     console.log("Mongoose connected successfully")
 })
 
-connection.on('error', (err)=>{
+connection.on('error', (err) => {
     console.log("Mongoose error: ", err)
 })
+
+
 
 //middleware
 app.use(bodyParser.json())
@@ -31,14 +34,15 @@ app.use(express.static(`${__dirname}/client/build`))
 app.use('/api/users', userController)
 
 app.get('/', (req, res) => {
-    res.send("Hello World")
+    User.find().then((users) => {
+        res.send(users)
+        console.log(users)
+    })
 })
-
-
 
 
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-    console.log("Application is listening on PORT ", PORT )
+    console.log("Application is listening on PORT ", PORT)
 })
