@@ -5,8 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const userController = require('./controllers/userController')
-const { User } = require('./db/userSchema')
-
+const jokeController = require('./controllers/jokeController')
 
 //connect to mongoose 
 mongoose.connect(process.env.MONGODB_URI)
@@ -32,6 +31,7 @@ app.use(express.static(`${__dirname}/client/build`))
 
 //routes
 app.use('/api/users', userController)
+app.use('/api/jokes', jokeController)
 
 app.get('/', (req, res) => {
     User.find().then((users) => {
