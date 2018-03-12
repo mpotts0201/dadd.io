@@ -1,14 +1,13 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
+const { User } = require('../db/userSchema')
 
-
-router.get('/', (req,res)=>{
-    res.send("Yooooooo")
+//get
+router.get('/', (req, res) => {
+    User.find().then((users) => {
+        res.send(users)
+    })
 })
-
-
-
-
 
 
 
