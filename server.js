@@ -36,7 +36,6 @@ app.use('/api/users', userController)
 app.get('/', (req, res) => {
     User.find().then((users) => {
         res.send(users)
-        console.log(users)
     })
 })
 
@@ -46,3 +45,5 @@ const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log("Application is listening on PORT ", PORT)
 })
+
+
