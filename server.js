@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const userController = require('./controllers/userController')
 const jokeController = require('./controllers/jokeController')
+const commentController = require('./controllers/commentController')
+
 
 //connect to mongoose 
 mongoose.connect(process.env.MONGODB_URI)
@@ -32,6 +34,8 @@ app.use(express.static(`${__dirname}/client/build`))
 //routes
 app.use('/api/users', userController)
 app.use('/api/jokes', jokeController)
+app.use('/api/jokes/:jokeId', commentController)
+
 
 app.get('/', (req, res) => {
     User.find().then((users) => {
