@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeView from "./components/HomeView";
 import User from './components/User'
 import axios from 'axios'
-
+import NewUser from './components/NewUser'
 
 class App extends Component {
   
@@ -55,16 +55,18 @@ class App extends Component {
     }
 
     const UserWrapper = (props) => {
-      return <User users={this.state.users}
+      return <User users={this.state.users} 
       {...props}
       />
     }
+
 
     return (
       <Router>
         <div className="App">
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
+            <Route exact path='/users/new' component={NewUser}/>
             <Route exact path='/users/:userId' render={UserWrapper} />
           </Switch>
         </div>
