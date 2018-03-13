@@ -1,34 +1,24 @@
-import React, { Component } from 'react';
-import User from './User'
-import axios from 'axios'
+import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 
 class UserList extends Component {
 
-    state = {
-        users: []
-    }
 
-    componentDidMount(){
-        axios.get('/api/users')
-        .then((res) => {
-            const users = res.data
-            console.log(users)
-            this.setState({ users: users})
-        })
-        .catch((err)=> {
-            console.log(err)
-        })
-    }
+  render() {
+    return (
+      <div>
+        {this.props.users.map(user => {
+          // console.log(user.userName)
 
-    render() {
-
-
-        return (
+          return (
             <div>
-                <User users={this.state.users}/>
+              <Link to={`/users/${user._id}`}>{user.userName}</Link>
             </div>
-        )
-    }
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 export default UserList;
