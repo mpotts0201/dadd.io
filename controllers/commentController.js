@@ -5,11 +5,16 @@ const { Comment } = require('../db/commentSchema')
 
 //read
 router.get('/', (req, res) => {
-    Comment.find().then((comment) => {
-        res.send(comment)
+    Joke.findById(req.params.jokeId).then((joke) => {
+        const comments = joke.comments
+        res.send(comments)
     })
 })
 
+//create 
+router.post('/', (req, res) => {
+
+})
 
 
 
