@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios'
 import UserList from './components/UserList'
 import JokeList from './components/JokeList'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class App extends Component {
 
@@ -36,12 +37,15 @@ class App extends Component {
 
 
     return (
+      <Router>
       <div className="App">
         <p>{this.state.randomJoke}</p>
-
+      <Switch>
         <UserList/>
         <JokeList/>
+      </Switch>
       </div>
+      </Router>
     );
   }
 }

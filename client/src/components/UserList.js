@@ -13,6 +13,7 @@ class UserList extends Component {
         .then((res) => {
             const users = res.data
             console.log(users)
+            this.setState({ users: users})
         })
         .catch((err)=> {
             console.log(err)
@@ -22,12 +23,11 @@ class UserList extends Component {
     render() {
 
 
-
         return (
             <div>
-                <User />
+                <User users={this.state.users}/>
             </div>
-        );
+        )
     }
 }
 

@@ -37,10 +37,8 @@ app.use('/api/jokes', jokeController)
 app.use('/api/jokes/:jokeId', commentController)
 
 
-app.get('/', (req, res) => {
-    User.find().then((users) => {
-        res.send(users)
-    })
+app.get('/*', (req, res) => {
+    res.sendFile(__dirname + '/client/build/index.html')
 })
 
 
