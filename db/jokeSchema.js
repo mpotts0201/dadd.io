@@ -4,6 +4,7 @@ mongoose.Promise = global.Promise
 
 const JokeSchema = new Schema({
     text: String,
+    votes: Number,
     comments: []
 })
 

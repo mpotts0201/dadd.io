@@ -11,12 +11,24 @@ import NewUser from "./components/NewUser";
 class App extends Component {
   state = {
     randomJoke: "",
-    users: []
+    users: [],
+    jokes: []
   };
+
+
+
+  getJokes = () => {
+    axios.get("/api/jokes").then(res => {
+      const jokes = res.data;
+      this.setState({ jokes });
+    });
+  };
+
 
   componentDidMount() {
     this.getRandomJoke();
     this.populatePage();
+    this.getJokes()
   }
 
   populatePage = () => {
@@ -54,6 +66,7 @@ class App extends Component {
           randomJoke={this.state.randomJoke}
           populatePage={this.populatePage}
           {...props}
+          jokes={this.state.jokes}
         />
       );
     };
