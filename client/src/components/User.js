@@ -5,7 +5,8 @@ import EditUser from "./EditUser";
 class User extends Component {
   state = {
     user: {
-        userName: ''
+        userName: '',
+        aboutMe: ''
     }
   };
 
@@ -26,7 +27,8 @@ class User extends Component {
     event.preventDefault();
     const userId = this.props.match.params.userId;
     const payload = {
-        userName : this.state.user.userName
+        userName : this.state.user.userName,
+        aboutMe: this.state.user.aboutMe
     }
     axios.patch(`/api/users/${userId}`, payload).then(res => {
       console.log(res.data);
@@ -37,9 +39,9 @@ class User extends Component {
   
 
   handleChange = (event) => {
-    const newState = { ...this.state };
-    newState[event.target.name] = event.target.value;
-    this.setState({ user: newState });
+    const newUser = { ...this.state.user };
+    newUser[event.target.name] = event.target.value;
+    this.setState({ user: newUser });
     console.log(event.target.value)
   };
 

@@ -2,20 +2,7 @@ import React, { Component } from 'react';
 
 class EditUser extends Component {
 
-    // state = {
-    //     user: {
-    //         userName: '',
-    //         aboutMe: ''
-    //     }
-    // }
 
-
-    // componentDidMount(){
-    //     const user = this.props.user
-    //     this.setState({user: user})
-    //     console.log(this.state)
-
-    // }
 
     render() {
 
@@ -25,10 +12,14 @@ class EditUser extends Component {
                 <form onSubmit={this.props.updateUser}>
                 <label htmlFor='userName'>User Name: </label>
                 <input name='userName'
-                    // value={event.target.user.userName}
                     onChange={this.props.handleChange}
                     value={this.props.user.userName}
-                
+                />
+                <br />
+                <label htmlFor='aboutMe'>About Me: </label>
+                <input name='aboutMe'
+                    onChange={this.props.handleChange}
+                    value={this.props.user.aboutMe}
                 />
                 <button onClick={this.props.handleSubmit}>Update Profile</button>
                 </form>
