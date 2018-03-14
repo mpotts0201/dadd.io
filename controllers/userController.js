@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
     })
 
     newUser.save().then((savedUser) => {
-        res.redirect(`/users/${savedUser._id}`)
+        res.redirect(`/api/users/${savedUser._id}`)
     })
 })
 
@@ -41,7 +41,7 @@ router.patch('/:userId', (req, res) => {
 
 
     }, { new: true }).then((updatedUser) => {
-        res.redirect(`/users/${updatedUser._id}`)
+        res.redirect(`/api/users/${updatedUser._id}`)
     })
 })
 
@@ -49,7 +49,7 @@ router.patch('/:userId', (req, res) => {
 router.delete('/:userId', (req, res) => {
     User.findByIdAndRemove(req.params.userId)
         .then(() => {
-            res.redirect('/users')
+            res.redirect('/api/users')
         })
 })
 

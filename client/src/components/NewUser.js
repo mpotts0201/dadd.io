@@ -9,9 +9,14 @@ class NewUser extends Component {
 
   createNewUser = payload => {
     axios.post(`/api/users`, payload).then(res => {
-      const newUserId = res.data[res.data.length - 1]._id;
-      this.setState({ redirectToUser: newUserId });
-    });
+    console.log(res.data)
+      const newUserId = res.data._id
+      this.setState({ redirectToUser: newUserId })
+        
+    
+    }).catch((err)=>{
+        console.log(err)
+    })
   };
 
   handleChange = event => {
@@ -26,9 +31,9 @@ class NewUser extends Component {
   };
 
   render() {
-      if(this.state.redirectToUser){
-          return <Redirect to={`/users/${this.state.redirectToUser}`}/>
-      }
+    if (this.state.redirectToUser){
+        return <Redirect to={`/users/${this.state.redirectToUser}`}/>
+    }
     return (
       <div>
         <h1>Create New User</h1>
