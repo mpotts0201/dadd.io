@@ -22,7 +22,6 @@ class App extends Component {
       .get("/api/users")
       .then(res => {
         const users = res.data;
-        console.log(users);
         this.setState({ users: users });
       })
       .catch(err => {
@@ -54,11 +53,6 @@ class App extends Component {
       {...props}/>
     }
 
-    const UserWrapper = (props) => {
-      return <User users={this.state.users} 
-      {...props}
-      />
-    }
 
 
     return (
@@ -67,7 +61,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
             <Route exact path='/users/new' component={NewUser}/>
-            <Route exact path='/users/:userId' render={UserWrapper} />
+            <Route exact path='/users/:userId' component={User} />
           </Switch>
         </div>
       </Router>

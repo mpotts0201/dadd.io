@@ -1,23 +1,57 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import EditUser from "./EditUser";
 
 class User extends Component {
   state = {
-    user: {}
+    user: {
+        userName: ''
+    }
   };
 
-//make axios call instead of props 
+  componentDidMount() {
+    const userId = this.props.match.params.userId;
+    axios
+      .get(`/api/users/${userId}`)
+      .then(res => {
+        const user = res.data;
+        this.setState({ user: user });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  updateUser = event => {
+    event.preventDefault();
+    const userId = this.props.match.params.userId;
+    const payload = {
+        userName : this.state.user.userName
+    }
+    axios.patch(`/api/users/${userId}`, payload).then(res => {
+      console.log(res.data);
+      this.setState({ user: res.data });
+    });
+  };
+
+  
+
+  handleChange = (event) => {
+    const newState = { ...this.state };
+    newState[event.target.name] = event.target.value;
+    this.setState({ user: newState });
+    console.log(event.target.value)
+  };
 
   render() {
-    const user = this.props.users.find(user => {
-        const userId = this.props.match.params.userId;
-        return user._id === userId;
-      });
     return (
       <div>
-        <h1>{user && user.userName}</h1>
-        <p>About Me: {user && user.aboutMe}</p>
-        <button>Update Profile</button>
+        <h1>{this.state.user.userName}</h1>
+        <p>About Me: {this.state.user.aboutMe}</p>
+        <EditUser handleSubmit={this.handleSubmit} user={this.state.user} 
+        handleChange={this.handleChange}
+        updateUser={this.updateUser}
+        />
       </div>
     );
   }

@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 //update
 router.patch('/:userId', (req, res) => {
     User.findByIdAndUpdate(req.params.userId, {
-        userName: req.body.name,
+        userName: req.body.userName,
         aboutMe: req.body.aboutMe
 
 
