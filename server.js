@@ -45,7 +45,7 @@ app.get('/*', (req, res) => {
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-    console.log("Application is listening on PORT ", PORT)
+    console.log("Slanga-langin' hot jokes on PORT ", PORT)
 })
 
 

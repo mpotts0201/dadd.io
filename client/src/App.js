@@ -4,12 +4,11 @@ import UserList from "./components/UserList";
 import JokeList from "./components/JokeList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeView from "./components/HomeView";
-import User from './components/User'
-import axios from 'axios'
-import NewUser from './components/NewUser'
+import User from "./components/User";
+import axios from "axios";
+import NewUser from "./components/NewUser";
 
 class App extends Component {
-  
   state = {
     randomJoke: "",
     users: []
@@ -17,7 +16,10 @@ class App extends Component {
 
   componentDidMount() {
     this.getRandomJoke();
+    this.populatePage();
+  }
 
+  populatePage = () => {
     axios
       .get("/api/users")
       .then(res => {
@@ -27,7 +29,7 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   getRandomJoke = () => {
     axios
@@ -44,24 +46,29 @@ class App extends Component {
       });
   };
 
-
   render() {
+    const HomeWrapper = props => {
+      return (
+        <HomeView
+          users={this.state.users}
+          randomJoke={this.state.randomJoke}
+          populatePage={this.populatePage}
+          {...props}
+        />
+      );
+    };
 
-    const HomeWrapper = (props) => {
-      return <HomeView users={this.state.users} 
-      randomJoke={this.state.randomJoke} 
-      {...props}/>
-    }
-
-
+    const UserWrapper = props => {
+      return <User {...props} populatePage={this.populatePage} />;
+    };
 
     return (
       <Router>
         <div className="App">
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
-            <Route exact path='/users/new' component={NewUser}/>
-            <Route exact path='/users/:userId' component={User} />
+            <Route exact path="/users/new" component={NewUser} />
+            <Route exact path="/users/:userId" render={UserWrapper} />
           </Switch>
         </div>
       </Router>
