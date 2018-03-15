@@ -16,11 +16,15 @@ h1{
 
 
 class Votes extends Component {
+
+
+
+
     render() {
         return (
             <Signs>
-                <h1 onClick={this.props.approve} >+</h1>
-                <h1 onClick={this.props.disapprove} >-</h1>
+                <h1 onClick={this.approve} >+</h1>
+                <h1 onClick={this.disapprove} >-</h1>
 
             </Signs>
         );

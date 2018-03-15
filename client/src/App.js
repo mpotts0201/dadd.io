@@ -23,12 +23,13 @@ class App extends Component {
 
   approve = () => {
     const payload = {
-      text: this.state.randomJoke.text,
+      text: this.state.randomJoke,
       votes: 1
     }
-    axios.post('/api/jokes', payload).then(()=>{
-      this.getRandomJoke()
-    })
+    axios.post('/api/jokes', payload)
+    this.getJokes()
+    this.getRandomJoke()
+    console.log(payload.text)
   }
 
   getJokes = () => {

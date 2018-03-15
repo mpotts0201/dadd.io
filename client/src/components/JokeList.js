@@ -16,6 +16,11 @@ justify-content: center;
 class JokeList extends Component {
 
 
+    approve = () => {
+        
+    }
+
+
 
     render() {
         return (
@@ -28,8 +33,7 @@ class JokeList extends Component {
                             <Score>
 
                             <p>Score: {joke.votes}</p>
-                            <Votes approve={this.props.approve}
-                            disapprove={this.props.disapprove}/>
+                            <Votes />
 
                             </Score>
                         </div>

@@ -5,6 +5,21 @@ import JokeList from "./JokeList";
 import Votes from './Votes'
 import styled from 'styled-components'
 
+
+const Signs = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+h1:hover{
+    cursor: pointer;
+
+}
+h1{
+    margin: 5px;
+}
+`
+
+
 const Joke = styled.p`
 
 `
@@ -21,19 +36,27 @@ div:first-child {
 class HomeView extends Component {
 
 
+    approve = () =>{
+        this.props.approve()
+    }
 
+    disapprove = () => {
+        this.props.disapprove()
+    }
+    
 
     render() {
         return (
             <div>
                 <p>{this.props.randomJoke}</p>
-                <Votes />
+                <Signs>
+                <h1 onClick={this.approve} >+</h1>
+                <h1 onClick={this.disapprove} >-</h1>
+                </Signs>
                 <Div>
 
                 <div><UserList users={this.props.users} /></div>
                 <div><JokeList jokes={this.props.jokes} 
-                approve={this.props.approve}
-                disapprove={this.props.disapprove}
                 /></div>
                 </Div>
             </div>

@@ -12,7 +12,14 @@ router.get('/', (req, res) => {
     })
 })
 
-
+//create 
+router.post('/', (req, res) => {
+    const newJoke = new Joke({
+        text: req.body.text,
+        votes: req.body.votes
+    })
+    newJoke.save()
+})
 
 
 //show
