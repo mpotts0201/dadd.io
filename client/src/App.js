@@ -7,6 +7,7 @@ import HomeView from "./components/HomeView";
 import User from "./components/User";
 import axios from "axios";
 import NewUser from "./components/NewUser";
+import NavBar from './components/NavBar'
 
 class App extends Component {
   state = {
@@ -78,6 +79,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+        <NavBar/>
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
             <Route exact path="/users/new" component={NewUser} />

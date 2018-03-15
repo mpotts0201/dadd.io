@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import UserList from "./UserList";
 import JokeList from "./JokeList";
-import { Link } from 'react-router-dom'
 import Votes from './Votes'
+import styled from 'styled-components'
+
+const Joke = styled.p`
+
+`
+
+const Div = styled.div`
+display: flex;
+flex-direction: row;
+
+`
+
 
 class HomeView extends Component {
 
@@ -15,9 +26,11 @@ class HomeView extends Component {
             <div>
                 <p>{this.props.randomJoke}</p>
                 <Votes />
+                <Div>
+
                 <UserList users={this.props.users} />
-                <Link to='/users/new'>Create New User</Link>
                 <JokeList jokes={this.props.jokes} />
+                </Div>
             </div>
         );
     }
