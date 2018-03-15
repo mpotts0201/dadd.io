@@ -20,6 +20,7 @@ class App extends Component {
     this.getRandomJoke()
   }
 
+  
 
   approve = () => {
     const payload = {
@@ -84,6 +85,8 @@ class App extends Component {
           jokes={this.state.jokes}
           approve={this.approve}
           disapprove={this.disapprove}
+          voteUp={this.voteUp}
+          voteDown={this.voteDown}
         />
       );
     };

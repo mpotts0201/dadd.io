@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import UserList from "./UserList";
 import JokeList from "./JokeList";
-import Votes from './Votes'
 import styled from 'styled-components'
 
 
@@ -57,6 +56,8 @@ class HomeView extends Component {
 
                 <div><UserList users={this.props.users} /></div>
                 <div><JokeList jokes={this.props.jokes} 
+                voteUp={this.props.voteUp}
+                voteDown={this.props.voteDown}
                 /></div>
                 </Div>
             </div>

@@ -1,25 +1,13 @@
 import React, { Component } from 'react';
 import Joke from './Joke'
-import Votes from './Votes'
 import styled from 'styled-components'
+import axios from 'axios'
 
 
-const Score = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-
-`
 
 
 
 class JokeList extends Component {
-
-
-    approve = () => {
-        
-    }
-
 
 
     render() {
@@ -30,12 +18,7 @@ class JokeList extends Component {
                     return (
                         <div>
                             <h5>{joke.text}</h5>
-                            <Score>
-
-                            <p>Score: {joke.votes}</p>
-                            <Votes />
-
-                            </Score>
+                            
                         </div>
                     )
                 })}
