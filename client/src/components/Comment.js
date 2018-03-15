@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 
 class Comment extends Component {
+
+    deleteComment = () => {
+        this.props.deleteComment(this.props.comment)
+    }
+
     render() {
         return (
             <div>
-                {this.props.comments
-                    ?this.props.comments.map((comment) => {
-                        return (
-                            <div>
-                                <p>{comment.text}</p>
-                            </div>
-                        )
-                    })
-                : null}
-
-                  
+                <p>{this.props.comment.text}</p>
+                <button onClick={this.deleteComment}>Delete Comment</button>
             </div>
         );
     }

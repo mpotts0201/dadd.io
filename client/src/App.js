@@ -9,6 +9,7 @@ import axios from "axios";
 import NewUser from "./components/NewUser";
 import NavBar from './components/NavBar'
 import Joke from './components/Joke'
+import About from './components/About'
 
 class App extends Component {
   state = {
@@ -97,7 +98,7 @@ class App extends Component {
     };
 
     const JokeWrapper = (props) => {
-      return <Joke {...props}  />
+      return <Joke {...props}  getJokes={this.getJokes}/>
     }
 
     return (
@@ -111,6 +112,7 @@ class App extends Component {
             <Route exact path="/users/new" component={NewUser} />
             <Route exact path="/users/:userId" render={UserWrapper} />
             <Route exact path='/jokes/:jokeId' render={JokeWrapper} />
+            <Route exact path='/about' component={About} />
           </Switch>
         </div>
       </Router>

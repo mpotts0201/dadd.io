@@ -33,6 +33,8 @@ router.get('/:jokeId', (req, res) => {
 router.delete('/:jokeId', (req, res) => {
     Joke.findByIdAndRemove(req.params.jokeId).then(()=> {
         res.redirect('/api/jokes')
+    }).catch((err) => {
+        console.log(err)
     })
 })
 

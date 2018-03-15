@@ -10,8 +10,10 @@ ul{list-style-type: none;
     overflow: hidden;
     background-color: #333;
 }
-   ul li{
-        float: right;
+   ul {
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
     }
 ul li a{
     display: block;
@@ -35,9 +37,11 @@ class NavBar extends Component {
         return (
             <Nav>
                 <ul>
-                    <li><a href='/users/new'>Create New User</a></li>
-                    <li><a href='/'>Comments</a></li>
                     <li><a href='/' onClick={this.props.populatePage}>Home</a></li>
+
+                    <li><a href='/users/new'>Create New User</a></li>
+                    <li><a href='/about'>About</a></li>
+
                 </ul>
             </Nav>
         );
