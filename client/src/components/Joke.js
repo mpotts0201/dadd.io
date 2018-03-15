@@ -4,7 +4,9 @@ import Comment from './Comment'
 class Joke extends Component {
 
   state = {
-    joke: {}
+    joke: {
+      comments: []
+    }
   }
 
   

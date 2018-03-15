@@ -34,7 +34,7 @@ app.use(express.static(`${__dirname}/client/build`))
 //routes
 app.use('/api/users', userController)
 app.use('/api/jokes', jokeController)
-app.use('/api/jokes/:jokeId', commentController)
+app.use('/api/jokes/:jokeId/comments', commentController)
 
 
 app.get('/*', (req, res) => {

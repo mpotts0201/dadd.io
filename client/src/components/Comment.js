@@ -5,10 +5,10 @@ class Comment extends Component {
         return (
             <div>
                 {this.props.comments
-                    ?this.props.comments[0].map((comment) => {
+                    ?this.props.comments.map((comment) => {
                         return (
                             <div>
-                                <h4>{comment.text}</h4>
+                                <p>{comment.text}</p>
                             </div>
                         )
                     })

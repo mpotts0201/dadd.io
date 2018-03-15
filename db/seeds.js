@@ -30,38 +30,37 @@ const comment5 = new Comment({
 
 
 
-const comments = [ comment1, comment2, comment3, comment4, comment5]
 
 //test jokes
 
 const joke1 = new Joke({
     text: "Whenever we drive past a graveyard my dad says, 'Do you know why I can’t be buried there?' And we all say, 'Why not?' And he says, 'Because I’m not dead yet.'",
     votes: 0,
-    comments: [ comments ]
+    comments: [ comment1, comment2, comment3, comment4, comment5 ]
 })
 
 const joke2 = new Joke({
     text: "Two peanuts were walking down the street. One was a salted.",
     votes: 0,
-    comments: [ comments ]
+    comments: [ comment1, comment2, comment3, comment4, comment5 ]
 })
 
 const joke3 = new Joke({
     text: "I used to have a job at a calendar factory but I got the sack because I took a couple of days off.",
     votes: 0,
-    comments: [ comments ]
+    comments: [ comment1, comment2, comment3, comment4, comment5 ]
 })
 
 const joke4 = new Joke({
     text: "How do you make holy water? You boil the hell out of it.",
     votes: 0,
-    comments: [ comments ]
+    comments: [ ]
 })
 
 const joke5 = new Joke({
     text: "Two guys walk into a bar, the third one ducks.",
     votes: 0,
-    comments: [ comments ]
+    comments: [ ]
 })
 
 //test users
@@ -69,7 +68,7 @@ const joke5 = new Joke({
 const murphy = new User({
     userName: "mpotts0201",
     aboutMe: "My name is Murphy and I built this app!",
-    comments: [ comments ]
+    comments: [ comment1, comment2, comment3, comment4, comment5 ]
 })
 
 
