@@ -12,7 +12,9 @@ const Joke = styled.p`
 const Div = styled.div`
 display: flex;
 flex-direction: row;
-
+div:first-child {
+    border: 3px solid black;
+}
 `
 
 
@@ -28,8 +30,11 @@ class HomeView extends Component {
                 <Votes />
                 <Div>
 
-                <UserList users={this.props.users} />
-                <JokeList jokes={this.props.jokes} />
+                <div><UserList users={this.props.users} /></div>
+                <div><JokeList jokes={this.props.jokes} 
+                approve={this.props.approve}
+                disapprove={this.props.disapprove}
+                /></div>
                 </Div>
             </div>
         );

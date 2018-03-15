@@ -37,10 +37,7 @@ class NavBar extends Component {
                 <ul>
                     <li><a href='/users/new'>Create New User</a></li>
                     <li><a href='/'>Comments</a></li>
-                    <li><a href='/'>Home</a></li>
-
-
-
+                    <li><a href='/' onClick={this.props.populatePage}>Home</a></li>
                 </ul>
             </Nav>
         );

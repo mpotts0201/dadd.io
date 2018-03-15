@@ -32,11 +32,18 @@ class User extends Component {
   };
 
   deleteShow = () => {
-    this.setState({ showDelete: !this.state.showDelete });
+    this.setState({ 
+      showDelete: !this.state.showDelete, 
+      showEdit: false
+    });
+
   };
 
   editShow = () => {
-    this.setState({ showEdit: !this.state.showEdit });
+    this.setState({ 
+      showEdit: !this.state.showEdit, 
+      showDelete: false
+    });
   };
 
   updateUser = event => {
@@ -107,7 +114,6 @@ class User extends Component {
           />
         ) : null}
         <br />
-        <Link to="/" onClick={this.props.populatePage}>Back to Home</Link>
       </div>
     );
   }

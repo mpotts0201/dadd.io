@@ -16,7 +16,20 @@ class App extends Component {
     jokes: []
   };
 
+  disapprove = () =>{
+    this.getRandomJoke()
+  }
 
+
+  approve = () => {
+    const payload = {
+      text: this.state.randomJoke.text,
+      votes: 1
+    }
+    axios.post('/api/jokes', payload).then(()=>{
+      this.getRandomJoke()
+    })
+  }
 
   getJokes = () => {
     axios.get("/api/jokes").then(res => {
@@ -68,6 +81,8 @@ class App extends Component {
           populatePage={this.populatePage}
           {...props}
           jokes={this.state.jokes}
+          approve={this.approve}
+          disapprove={this.disapprove}
         />
       );
     };
@@ -79,7 +94,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        <NavBar/>
+        <NavBar populatePage={this.populatePage}/>
+        <h1>dadd.io</h1>
+        <h6>your favorite dad jokes, at the press of a button</h6>
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
             <Route exact path="/users/new" component={NewUser} />

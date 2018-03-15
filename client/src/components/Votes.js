@@ -5,7 +5,13 @@ const Signs = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
-margin: 5px;
+h1:hover{
+    cursor: pointer;
+
+}
+h1{
+    margin: 5px;
+}
 `
 
 
@@ -13,8 +19,8 @@ class Votes extends Component {
     render() {
         return (
             <Signs>
-                <h1>+</h1>
-                <h1>-</h1>
+                <h1 onClick={this.props.approve} >+</h1>
+                <h1 onClick={this.props.disapprove} >-</h1>
 
             </Signs>
         );
