@@ -8,6 +8,7 @@ import User from "./components/User";
 import axios from "axios";
 import NewUser from "./components/NewUser";
 import NavBar from './components/NavBar'
+import Joke from './components/Joke'
 
 class App extends Component {
   state = {
@@ -20,7 +21,7 @@ class App extends Component {
     this.getRandomJoke()
   }
 
-  
+
 
   approve = () => {
     const payload = {
@@ -95,6 +96,10 @@ class App extends Component {
       return <User {...props} populatePage={this.populatePage} />;
     };
 
+    const JokeWrapper = (props) => {
+      return <Joke {...props}  />
+    }
+
     return (
       <Router>
         <div className="App">
@@ -105,6 +110,7 @@ class App extends Component {
             <Route exact path="/" render={HomeWrapper} />
             <Route exact path="/users/new" component={NewUser} />
             <Route exact path="/users/:userId" render={UserWrapper} />
+            <Route exact path='/jokes/:jokeId' render={JokeWrapper} />
           </Switch>
         </div>
       </Router>

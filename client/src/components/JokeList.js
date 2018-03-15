@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Joke from './Joke'
 import styled from 'styled-components'
 import axios from 'axios'
 
@@ -17,8 +16,10 @@ class JokeList extends Component {
                 {this.props.jokes.map(joke => {
                     return (
                         <div>
-                            <h5>{joke.text}</h5>
-                            
+                            <br />
+                            <a href={`/jokes/${joke._id}`}>{joke.text}</a>
+                            <br />
+                    
                         </div>
                     )
                 })}
