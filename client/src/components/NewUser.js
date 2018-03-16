@@ -1,6 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Text = styled.label`
+font-family: 'Raleway', sans-serif;
+color: #333333;
+text-decoration: none;
+margin: 20px 0;
+font-size: 20px;
+
+`
+
+const H1 = styled.h1`
+font-family: 'Lobster', cursive;
+font-size: 35px;
+color: #0d0d0d;
+`
 
 class NewUser extends Component {
   state = {
@@ -36,9 +52,10 @@ class NewUser extends Component {
     }
     return (
       <div>
-        <h1>Create New User</h1>
+        <H1>Create New User</H1>
         <form onSubmit={this.handleSubmit} >
-        <label htmlFor="userName">User Name: </label>
+        <Text htmlFor="userName">User Name </Text>
+        <br/>
         <input
           type="text"
           name="userName"
@@ -46,13 +63,21 @@ class NewUser extends Component {
           onChange={this.handleChange}
         />
         <br/>
-        <label htmlFor='aboutMe'>About Me: </label>
-        <input 
+        <br/>
+        <br/>
+        <br/>
+        <Text htmlFor='aboutMe'>About Me </Text>
+        <br/>
+        <textarea 
+            rows='10'
+            cols='70'
             type='text'
             name='aboutMe'
             value={this.state.aboutMe}
             onChange={this.handleChange}
         />
+        <br/>
+        <br/>
         <button type='submit'>Create New User</button>
         </form>
       </div>

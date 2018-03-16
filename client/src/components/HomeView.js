@@ -5,10 +5,23 @@ import JokeList from "./JokeList";
 import styled from 'styled-components'
 
 
+const Text = styled.p`
+font-family: 'Raleway', sans-serif;
+color: #333333;
+text-decoration: none;
+margin: 20px 0;
+font-size: 25px;
+
+`
+
 const Signs = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
+
+h1{
+    padding: 30px;
+}
 h1:hover{
     cursor: pointer;
 
@@ -18,15 +31,29 @@ h1{
 }
 `
 
-const Div = styled.div`
+const H1 = styled.h1`
+font-family: 'Lobster', cursive;
+color:  #0d0d0d;
+font-size: 30px;
+:hover{
+  color: #1c7fb0;
+}
+`
 
+const Div = styled.div`
+margin: 30px;
 display: flex;
 flex-direction: row;
-width: 75%;
-justify-content: center;
+justify-content: space-between;
 div:first-child {
-    border: 3px solid black;
+    border: 1px solid  #595959;
 }
+`
+const UserDiv = styled.div`
+padding: 0 20px;
+`
+const JokeDiv = styled.div`
+padding: 0 20px;
 `
 
 
@@ -45,18 +72,18 @@ class HomeView extends Component {
     render() {
         return (
             <div>
-                <p>{this.props.randomJoke}</p>
+                <Text>{this.props.randomJoke}</Text>
                 <Signs>
-                <h1 onClick={this.approve} >+</h1>
-                <h1 onClick={this.disapprove} >-</h1>
+                <H1 onClick={this.approve} >Save Joke</H1>
+                <H1 onClick={this.disapprove} >New Joke</H1>
                 </Signs>
                 <Div>
 
-                <div><UserList users={this.props.users} /></div>
-                <div><JokeList jokes={this.props.jokes} 
+                <UserDiv><UserList users={this.props.users} /></UserDiv>
+                <JokeDiv><JokeList jokes={this.props.jokes} 
                 voteUp={this.props.voteUp}
                 voteDown={this.props.voteDown}
-                /></div>
+                /></JokeDiv>
                 </Div>
             </div>
         );

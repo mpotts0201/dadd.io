@@ -10,6 +10,30 @@ import NewUser from "./components/NewUser";
 import NavBar from './components/NavBar'
 import Joke from './components/Joke'
 import About from './components/About'
+import styled from 'styled-components'
+import { injectGlobal } from 'styled-components'
+
+injectGlobal`
+@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
+`
+const H1 = styled.h1`
+font-family: 'Lobster', cursive;
+font-size: 50px;
+color:  #0d0d0d;
+`
+const TitleDiv = styled.div`
+padding: 0px;
+`
+const All = styled.div`
+background-color:  #f2f2f2;
+`
+
+const H6 = styled.h6`
+font-family: 'Raleway', sans-serif;
+color: #595959;
+font-weight: 700;
+font-style: italic;
+`
 
 class App extends Component {
   state = {
@@ -18,7 +42,7 @@ class App extends Component {
     jokes: []
   };
 
-  disapprove = () =>{
+  disapprove = () => {
     this.getRandomJoke()
   }
 
@@ -44,7 +68,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    axios.get('https://icanhazdadjoke.com/').then((res)=>{
+    axios.get('https://icanhazdadjoke.com/').then((res) => {
       console.log(res.data)
     })
     this.getRandomJoke();
@@ -101,15 +125,18 @@ class App extends Component {
     };
 
     const JokeWrapper = (props) => {
-      return <Joke {...props}  getJokes={this.getJokes}/>
+      return <Joke {...props} getJokes={this.getJokes} />
     }
 
     return (
       <Router>
-        <div className="App">
-        <NavBar populatePage={this.populatePage}/>
-        <h1>dadd.io</h1>
-        <h6>your favorite dad jokes, at the press of a button</h6>
+        <All className="App">
+
+          <NavBar populatePage={this.populatePage} />
+          <TitleDiv>
+            <H1>dadd.io</H1>
+            <H6>your favorite dad jokes, at the press of a button</H6>
+          </TitleDiv>
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
             <Route exact path="/users/new" component={NewUser} />
@@ -117,7 +144,7 @@ class App extends Component {
             <Route exact path='/jokes/:jokeId' render={JokeWrapper} />
             <Route exact path='/about' component={About} />
           </Switch>
-        </div>
+        </All>
       </Router>
     );
   }

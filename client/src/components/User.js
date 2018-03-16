@@ -2,6 +2,23 @@ import React, { Component } from "react";
 import axios from "axios";
 import EditUser from "./EditUser";
 import { Redirect, Link } from "react-router-dom";
+import styled from 'styled-components'
+
+
+const Text = styled.p`
+font-family: 'Raleway', sans-serif;
+color: #333333;
+text-decoration: none;
+margin: 20px 0;
+font-size: 20px;
+
+`
+
+const H1 = styled.h1`
+font-family: 'Lobster', cursive;
+font-size: 35px;
+color: #0d0d0d;
+`
 
 class User extends Component {
   state = {
@@ -88,17 +105,18 @@ class User extends Component {
     }
     return (
       <div>
-        <h1>{this.state.user.userName}</h1>
-        <p>
-          <strong>About Me: </strong>
-          {this.state.user.aboutMe}
-        </p>
+        <H1>{this.state.user.userName}</H1>
+          <Text>
+{this.state.user.aboutMe}
+        </Text>
         <button onClick={this.editShow}>Edit User</button>
         <button onClick={this.deleteShow}>Delete User</button>
+        <br/>
+        <br/>
 
         {this.state.showDelete ? (
           <div>
-            <p>Are you sure?</p>
+            <Text>Are you sure?</Text>
             <br />
             <button onClick={this.deleteUser}>Delete Account</button>{" "}
             <button onClick={this.deleteShow}>Do not Delete</button>

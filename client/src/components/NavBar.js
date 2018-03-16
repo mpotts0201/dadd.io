@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
+
 const Nav = styled.div`
 ul{list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #262626;
 }
    ul {
        display: flex;
@@ -21,10 +22,14 @@ ul li a{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    background-color: #262626;
+
 }
 
 ul li a:hover{
-    background-color: #111;
+    background-color: #595959;
 }
 
 `

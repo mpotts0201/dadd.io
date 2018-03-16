@@ -1,4 +1,14 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+
+const Text = styled.p`
+font-family: 'Raleway', sans-serif;
+color: #333333;
+text-decoration: none;
+margin: 20px 0;
+font-size: 15px;
+
+`
 
 class Comment extends Component {
 
@@ -9,7 +19,7 @@ class Comment extends Component {
     render() {
         return (
             <div>
-                <p>{this.props.comment.text}</p>
+                <Text>{this.props.comment.text}</Text>
                 <button onClick={this.deleteComment}>Delete Comment</button>
             </div>
         );

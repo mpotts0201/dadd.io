@@ -2,7 +2,22 @@ import React, { Component } from "react";
 import axios from "axios";
 import CommentList from './CommentList'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
 
+const Text = styled.p`
+font-family: 'Raleway', sans-serif;
+color: #333333;
+text-decoration: none;
+margin: 20px 0;
+font-size: 25px;
+
+`
+
+const H1 = styled.h1`
+font-family: 'Lobster', cursive;
+font-size: 35px;
+color:  #0d0d0d;
+`
 
 class Joke extends Component {
 
@@ -91,8 +106,12 @@ class Joke extends Component {
     }
     return (
       <div>
-        <h3>{this.state.joke.text}</h3>
+        <Text>{this.state.joke.text}</Text>
         <button onClick={this.deleteJoke}>Delete Joke</button>
+
+        <br/>
+        <br/>
+        <H1>Comments</H1>
         <CommentList comments={this.state.joke.comments} 
         deleteComment={this.deleteComment}/>
        
