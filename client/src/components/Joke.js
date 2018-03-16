@@ -117,14 +117,19 @@ class Joke extends Component {
        
        
         <form onSubmit={this.handleSubmit}>
+        <br/>
         <textarea 
+        rows='10'
+        cols='50'
         type='text'
         name='text'
         value={this.state.text}
         onChange={this.handleChange}
         />
+        <br/>
 
         <button type='submit'>Create Comment</button>
+        <br/>
         </form>
 
       </div>
