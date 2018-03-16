@@ -6,7 +6,7 @@ class UserList extends Component {
 
   render() {
     return (
-      <div>
+      <span>
         <h1>Users</h1>
         {this.props.users.map(user => {
           // console.log(user.userName)
@@ -17,7 +17,7 @@ class UserList extends Component {
             </div>
           );
         })}
-      </div>
+      </span>
     );
   }
 }

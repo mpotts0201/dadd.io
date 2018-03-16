@@ -18,14 +18,12 @@ h1{
 }
 `
 
-
-const Joke = styled.p`
-
-`
-
 const Div = styled.div`
+
 display: flex;
 flex-direction: row;
+width: 75%;
+justify-content: center;
 div:first-child {
     border: 3px solid black;
 }

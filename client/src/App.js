@@ -44,6 +44,9 @@ class App extends Component {
 
 
   componentDidMount() {
+    axios.get('https://icanhazdadjoke.com/').then((res)=>{
+      console.log(res.data)
+    })
     this.getRandomJoke();
     this.populatePage();
     this.getJokes()
