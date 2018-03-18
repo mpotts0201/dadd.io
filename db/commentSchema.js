@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 mongoose.Promise = global.Promise
+const User = require('./userSchema')
 
 const commentSchema = new Schema({
-    text: String
+    text: String,
+    author: { type: Schema.Types.ObjectId, ref: 'User'}
 })
 
 
