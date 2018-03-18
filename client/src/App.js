@@ -68,9 +68,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    axios.get('https://icanhazdadjoke.com/').then((res) => {
-      console.log(res.data)
-    })
+    
     this.getRandomJoke();
     this.populatePage();
     this.getJokes()
@@ -90,12 +88,18 @@ class App extends Component {
 
   getRandomJoke = () => {
     axios
-      .get("/api/jokes")
+      ({
+        url: 'https://icanhazdadjoke.com/',
+        method: 'get',
+        headers: {
+          'User-Agent': 'My App (https://github.com/mpotts0201/dadd.io)',
+          'Accept': 'application/json',
+        },
+    })
       .then(res => {
-        const randomJoke = res.data;
-        const joke = randomJoke[Math.floor(Math.random() * randomJoke.length)];
+        const joke = res.data.joke;
 
-        this.setState({ randomJoke: joke.text });
+        this.setState({ randomJoke: joke });
         console.log(this.state.randomJoke);
       })
       .catch(err => {
