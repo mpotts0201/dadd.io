@@ -5,7 +5,7 @@ import axios from 'axios'
 const H1 = styled.h1`
 font-family: 'Lobster', cursive;
 font-size: 35px;
-color:  #0d0d0d;
+color:  #07889B;
 `
 
 const Text = styled.a`

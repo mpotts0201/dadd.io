@@ -9,7 +9,7 @@ ul{list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #262626;
+    background-color: #07889B;
 }
    ul {
        display: flex;
@@ -24,12 +24,12 @@ ul li a{
     text-decoration: none;
     font-family: 'Lobster', cursive;
     font-size: 20px;
-    background-color: #262626;
+    background-color: #07889B;
 
 }
 
 ul li a:hover{
-    background-color: #595959;
+    background-color: #262626;
 }
 
 `

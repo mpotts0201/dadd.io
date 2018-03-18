@@ -33,10 +33,10 @@ h1{
 
 const H1 = styled.h1`
 font-family: 'Lobster', cursive;
-color:  #0d0d0d;
+color:  #07889B;
 font-size: 30px;
 :hover{
-  color: #1c7fb0;
+  color: #262626;
 }
 `
 

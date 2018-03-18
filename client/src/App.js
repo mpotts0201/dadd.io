@@ -19,14 +19,10 @@ injectGlobal`
 const H1 = styled.h1`
 font-family: 'Lobster', cursive;
 font-size: 50px;
-color:  #0d0d0d;
+color:  #07889B;
 `
-const TitleDiv = styled.div`
-padding: 0px;
-`
-const All = styled.div`
-background-color:  #f2f2f2;
-`
+
+
 
 const H6 = styled.h6`
 font-family: 'Raleway', sans-serif;
@@ -134,13 +130,13 @@ class App extends Component {
 
     return (
       <Router>
-        <All className="App">
+        <div className="App">
 
           <NavBar populatePage={this.populatePage} />
-          <TitleDiv>
+          
             <H1>dadd.io</H1>
             <H6>your favorite dad jokes, at the press of a button</H6>
-          </TitleDiv>
+          
           <Switch>
             <Route exact path="/" render={HomeWrapper} />
             <Route exact path="/users/new" component={NewUser} />
@@ -148,7 +144,7 @@ class App extends Component {
             <Route exact path='/jokes/:jokeId' render={JokeWrapper} />
             <Route exact path='/about' component={About} />
           </Switch>
-        </All>
+        </div>
       </Router>
     );
   }
