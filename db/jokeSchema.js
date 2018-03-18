@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 mongoose.Promise = global.Promise
-const {commentSchema} = require('./commentSchema')
+const {commentSchema} = require('./UserSchema')
 
 const JokeSchema = new Schema({
     text: String,

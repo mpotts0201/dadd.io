@@ -4,12 +4,12 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const { User } = require('./userSchema')
 const { Joke } = require('./jokeSchema')
-const { Comment } = require('./commentSchema')
+const { Comment } = require('./UserSchema')
 
 //test comments
 
 const comment1 = new Comment({
-    text: "First test comment!"
+    text: "First test comment!",
 })
 
 const comment2 = new Comment({
@@ -68,7 +68,7 @@ const joke5 = new Joke({
 const murphy = new User({
     userName: "mpotts0201",
     aboutMe: "My name is Murphy and I built this app!",
-    comments: [ comment1, comment2, comment3, comment4, comment5 ]
+    comments: [comment1, comment2, comment3, comment4, comment5]
 })
 
 
