@@ -44,13 +44,26 @@ const Div = styled.div`
 margin: 30px;
 display: flex;
 flex-direction: row;
-justify-content: space-between;
+justify-content: space-around;
 div:first-child {
     border: 1px solid  #595959;
+}
+@media(max-width: 700px){
+    flex-direction: column-reverse;
+    .user{
+        max-width: none;
+    }
+    .joke{
+        max-width: none;
+    }
+
+
 }
 `
 const UserDiv = styled.div`
 padding: 0 20px;
+max-width: 150px;
+
 `
 const JokeDiv = styled.div`
 padding: 0 20px;
@@ -79,8 +92,8 @@ class HomeView extends Component {
                 </Signs>
                 <Div>
 
-                <UserDiv><UserList users={this.props.users} /></UserDiv>
-                <JokeDiv><JokeList jokes={this.props.jokes} 
+                <UserDiv className='user'><UserList users={this.props.users} /></UserDiv>
+                <JokeDiv className='joke'><JokeList jokes={this.props.jokes} 
                 voteUp={this.props.voteUp}
                 voteDown={this.props.voteDown}
                 /></JokeDiv>
